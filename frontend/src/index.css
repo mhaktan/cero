@@ -1,0 +1,37 @@
+@import '@takeoff-ui/core/dist/core/core.css';
+
+:root {
+  /* Takeoff UI primary palette — tk-button reads these via var() at runtime */
+  --primary-500: #aa46ec;
+  --primary-400: #aa46ec;
+  --primary-300: #aa46eccc;
+  --primary-200: #aa46ec99;
+  --primary-100: #aa46ec33;
+  --primary-50: #aa46ec1a;
+  --primary-base: #aa46ec;
+  --primary-sub-base: #aa46eccc;
+  --primary-dark: #aa46ecdd;
+  --primary-darkest: #aa46ecbb;
+  --primary-light: #aa46ec33;
+  --primary-lightest: #aa46ec1a;
+  --primary-focus: #aa46ec44;
+  --danger-base: #d32f2f;
+  --danger-500: #d32f2f;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: var(--tk-font-family-base, system-ui, sans-serif);
+  background: var(--tk-color-bg-base, #f4f5f7);
+  color: var(--tk-color-text-base, #1a1a2e);
+}
