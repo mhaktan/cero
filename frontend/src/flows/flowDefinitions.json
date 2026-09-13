@@ -106,6 +106,24 @@
                   ]
                 }
               ]
+            },
+            {
+              "name": "Direktör Onayı",
+              "assigneeType": "role",
+              "assigneeValue": "Director",
+              "actions": [
+                {
+                  "label": "Onayla",
+                  "type": "approve"
+                },
+                {
+                  "label": "Reddet",
+                  "type": "revise",
+                  "requiredFields": [
+                    "rejectionReason"
+                  ]
+                }
+              ]
             }
           ],
           "trackRevisionHistory": true,
@@ -165,28 +183,28 @@
     ],
     "edges": [
       {
-        "id": "gen_1789314222895_1",
+        "id": "gen_1789314869550_1",
         "sourceNodeId": "PurchaseRequest-approval-trigger",
         "targetNodeId": "PurchaseRequest-approval-condition"
       },
       {
-        "id": "gen_1789314222895_2",
+        "id": "gen_1789314869550_2",
         "sourceNodeId": "PurchaseRequest-approval-condition",
         "targetNodeId": "PurchaseRequest-approval-approval",
         "branch": "true"
       },
       {
-        "id": "gen_1789314222895_3",
+        "id": "gen_1789314869550_3",
         "sourceNodeId": "PurchaseRequest-approval-approval",
         "targetNodeId": "PurchaseRequest-approval-email"
       },
       {
-        "id": "gen_1789314222895_4",
+        "id": "gen_1789314869550_4",
         "sourceNodeId": "PurchaseRequest-approval-completion-trigger",
         "targetNodeId": "PurchaseRequest-approval-completion-email"
       }
     ],
-    "createdAt": "2026-09-13T15:43:42.895Z",
-    "updatedAt": "2026-09-13T15:43:42.895Z"
+    "createdAt": "2026-09-13T15:54:29.550Z",
+    "updatedAt": "2026-09-13T15:54:29.550Z"
   }
 ]

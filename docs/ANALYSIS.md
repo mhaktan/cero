@@ -250,7 +250,7 @@ erDiagram
 | `needDate` | DateTime | Evet | — |
 | `approvedDate` | DateTime | Hayır | — |
 | `rejectionReason` | string | Hayır | 1000 |
-| `status` | enum (Draft,PendingManagerApproval,PendingFinanceApproval,Approved,Ordered) | Evet | — |
+| `status` | enum (Draft,PendingManagerApproval,PendingFinanceApproval,PendingDirectorApproval,Approved,Ordered) | Evet | — |
 
 **Neye bağlı:** Employee (1:N, bu tablo "çok" tarafı) · Department (1:N, bu tablo "çok" tarafı) · ExpenseCategory (1:N, bu tablo "çok" tarafı) · PurchaseRequestItem (1:N, bu tablo "bir" tarafı) · Quotation (1:N, bu tablo "bir" tarafı) · PurchaseOrder (1:N, bu tablo "bir" tarafı)
 
@@ -300,8 +300,10 @@ stateDiagram-v2
     Draft --> PendingManagerApproval : Submit
     PendingManagerApproval --> PendingFinanceApproval : Approve
     PendingManagerApproval --> Draft : Revise
-    PendingFinanceApproval --> Approved : Approve
+    PendingFinanceApproval --> PendingDirectorApproval : Approve
     PendingFinanceApproval --> Draft : Revise
+    PendingDirectorApproval --> Approved : Approve
+    PendingDirectorApproval --> Draft : Revise
     Approved --> Ordered : PlaceOrder
     Ordered --> [*]
 ```
@@ -312,6 +314,7 @@ stateDiagram-v2
 |---|---|---|---|---|
 | 1 | Birim Müdürü Onayı | Rol: `DepartmentManager` | Onayla (approve), Reddet (revise) | `rejectionReason` |
 | 2 | Finans Onayı | Rol: `FinanceApprover` | Onayla (approve), Reddet (revise) | `rejectionReason` |
+| 3 | Direktör Onayı | Rol: `Director` | Onayla (approve), Reddet (revise) | `rejectionReason` |
 
 Reddedilirse kayıt **`Draft`** durumuna döner.
 
